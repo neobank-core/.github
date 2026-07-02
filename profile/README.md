@@ -1,172 +1,172 @@
 # 🚀 NeoBank Core - Next Generation Microservices Banking Platform
 
-Добро пожаловать в главную документацию организации **NeoBank**! 
+Welcome to the main documentation of the **NeoBank** organization!
 
-NeoBank — это современная, распределенная, отказоустойчивая и масштабируемая Cloud-Native платформа цифрового банкинга, построенная на базе микросервисной архитектуры с использованием самых передовых технологий. Проект демонстрирует эталонные практики Enterprise-разработки, применения паттернов распределенных систем (CQRS, Event-Driven Architecture, Database-per-Service, Circuit Breaker), обеспечения безопасности уровня банковских систем и полного покрытия Observability.
-
----
-
-## 🌟 Детальное описание бизнес-возможностей (Features)
-
-Наша платформа охватывает полный жизненный цикл банковского обслуживания клиентов и работы администраторов.
-
-### 👤 Клиентский функционал (User & Onboarding)
-- **Безопасная аутентификация и авторизация** на базе Keycloak (OAuth2, OpenID Connect).
-- **KYC (Know Your Customer) Workflow:** Процесс загрузки документов, проверка статусов верификации и автоматическая привязка ролей после одобрения.
-- **Управление профилем:** Изменение персональных данных, настройка безопасности профиля.
-
-### 💰 Управление счетами (Account Management)
-- **Открытие счетов:** Поддержка множества счетов (текущие, сберегательные).
-- **Просмотр баланса:** Высокопроизводительное получение балансов с кэшированием в Redis.
-- **Управление статусами счетов:** Блокировка/разблокировка счетов.
-
-### 💳 Карточные продукты (Card Services)
-- **Эмиссия карт:** Виртуальные и физические карты.
-- **Управление картами:** Установка и изменение PIN-кода, блокировка/разблокировка, перевыпуск.
-- **Лимиты:** Настройка дневных/месячных лимитов на траты.
-
-### 💸 Транзакционное ядро (Transaction Engine)
-- **Денежные переводы:** Переводы между своими счетами, P2P переводы по номеру телефона/счета.
-- **Пополнения и снятия:** Интеграция с внешними шлюзами.
-- **ACID транзакции:** Надежная обработка переводов с распределенными блокировками и гарантиями консистентности.
-- **Выписки (Statements):** Формирование выписок по счету за выбранный период.
-
-### 🔔 Уведомления (Notification Center)
-- **Омниканальность:** Отправка Email, SMS, и Push-уведомлений.
-- **Асинхронность:** Обработка событий в реальном времени через **Apache Kafka**.
-- **История уведомлений:** Хранение и просмотр всех отправленных сообщений в личном кабинете.
-
-### 🛡 Управление платформой (Admin Panel)
-- **Дашборды:** Статистика системы в реальном времени.
-- **Управление KYC:** Ручная или полуавтоматическая валидация документов пользователей.
-- **Feature Toggles (Unleash):** Бесшовное включение/отключение нового функционала на лету без перезапуска сервисов.
+NeoBank is a modern, distributed, fault-tolerant, and scalable Cloud-Native digital banking platform built on a microservices architecture using cutting-edge technologies. The project demonstrates enterprise-grade development practices, the application of distributed system patterns (CQRS, Event-Driven Architecture, Database-per-Service, Circuit Breaker), bank-level security implementation, and comprehensive Observability coverage.
 
 ---
 
-## 🛠 Исчерпывающий стек технологий (Tech Stack)
+## 🌟 Detailed Business Features
 
-В архитектуре используются последние версии фреймворков и библиотек.
+Our platform covers the full lifecycle of banking services for customers and administrative operations.
+
+### 👤 Customer Features (User & Onboarding)
+- **Secure Authentication and Authorization** powered by Keycloak (OAuth2, OpenID Connect).
+- **KYC (Know Your Customer) Workflow:** Document upload process, verification status tracking, and automated role assignment upon approval.
+- **Profile Management:** Modifying personal data, configuring profile security.
+
+### 💰 Account Management
+- **Account Opening:** Support for multiple account types (checking, savings).
+- **Balance Retrieval:** High-performance balance retrieval with Redis caching.
+- **Account Status Management:** Blocking/unblocking accounts.
+
+### 💳 Card Services
+- **Card Issuance:** Virtual and physical cards.
+- **Card Management:** Setting and changing PIN codes, blocking/unblocking, reissuance.
+- **Limits:** Configuring daily/monthly spending limits.
+
+### 💸 Transaction Engine
+- **Money Transfers:** Transfers between own accounts, P2P transfers by phone number/account number.
+- **Deposits and Withdrawals:** Integration with external gateways.
+- **ACID Transactions:** Reliable transfer processing with distributed locks and consistency guarantees.
+- **Statements:** Generating account statements for a selected period.
+
+### 🔔 Notification Center
+- **Omnichannel Delivery:** Sending Email, SMS, and Push notifications.
+- **Asynchronous Processing:** Real-time event handling via **Apache Kafka**.
+- **Notification History:** Storing and viewing all sent messages in the user's dashboard.
+
+### 🛡 Platform Management (Admin Panel)
+- **Dashboards:** Real-time system statistics.
+- **KYC Management:** Manual or semi-automated validation of user documents.
+- **Feature Toggles (Unleash):** Seamlessly enabling/disabling new features on the fly without restarting services.
+
+---
+
+## 🛠 Comprehensive Tech Stack
+
+The architecture utilizes the latest versions of frameworks and libraries.
 
 ### ☕ Backend (Microservices)
-- **Язык и платформа:** Java 21
-- **Фреймворк:** Spring Boot 4.0.6
-- **Облачная инфраструктура:** Spring Cloud 2025.1.1
+- **Language & Platform:** Java 21
+- **Framework:** Spring Boot 4.0.6
+- **Cloud Infrastructure:** Spring Cloud 2025.1.1
 - **API Gateway:** Spring Cloud Gateway
 - **Service Discovery:** Netflix Eureka (Spring Cloud Netflix)
-- **Централизованная конфигурация:** Spring Cloud Config Server
-- **REST Клиенты:** OpenFeign (Spring Cloud OpenFeign) с Micrometer метриками
-- **Отказоустойчивость:** Resilience4j (Circuit Breaker, Rate Limiter, Retry)
-- **Маппинг и кодогенерация:** MapStruct 1.5.5.Final, Lombok
-- **Документация API:** Springdoc OpenAPI (Swagger UI) 3.0.x
+- **Centralized Configuration:** Spring Cloud Config Server
+- **REST Clients:** OpenFeign (Spring Cloud OpenFeign) with Micrometer metrics
+- **Fault Tolerance:** Resilience4j (Circuit Breaker, Rate Limiter, Retry)
+- **Mapping & Code Generation:** MapStruct 1.5.5.Final, Lombok
+- **API Documentation:** Springdoc OpenAPI (Swagger UI) 3.0.x
 
-### 💾 Базы данных и Кэширование (Databases & Caching)
-- **Реляционная СУБД:** PostgreSQL (изолированная схема/БД для каждого микросервиса — *Database-per-service*)
-- **Миграции БД:** Flyway
-- **Кэширование:** Redis (Spring Data Redis, Spring Boot Cache)
+### 💾 Databases & Caching
+- **Relational DBMS:** PostgreSQL (isolated schema/DB for each microservice — *Database-per-service*)
+- **Database Migrations:** Flyway
+- **Caching:** Redis (Spring Data Redis, Spring Boot Cache)
 
-### 📨 Брокеры сообщений (Message Brokers)
-- **Событийная архитектура:** Apache Kafka
-- **Zookeeper:** Координация нод Kafka
+### 📨 Message Brokers
+- **Event-Driven Architecture:** Apache Kafka
+- **Zookeeper:** Kafka node coordination
 - Spring Kafka (Producer / Consumer Factory)
 
-### 🔐 Безопасность (Security)
+### 🔐 Security
 - **Identity Provider (IAM):** Keycloak
-- Spring Security, OAuth2 Resource Server, JWT валидация.
-- Защита внутренних межсервисных вызовов через Internal API Keys.
+- Spring Security, OAuth2 Resource Server, JWT validation.
+- Protection of internal inter-service calls via Internal API Keys.
 
-### 👁‍🗨 Наблюдаемость (Observability)
-- **Метрики:** Micrometer, Prometheus, Grafana
-- **Распределенная трассировка (Distributed Tracing):** Zipkin (Reporter Brave), Micrometer Tracing Bridge
-- **Централизованное логирование (ELK Stack):**
-  - Logstash Logback Encoder (генерация логов в JSON)
-  - Elasticsearch (хранение)
-  - Kibana (дашборды и поиск)
+### 👁‍🗨 Observability
+- **Metrics:** Micrometer, Prometheus, Grafana
+- **Distributed Tracing:** Zipkin (Reporter Brave), Micrometer Tracing Bridge
+- **Centralized Logging (ELK Stack):**
+  - Logstash Logback Encoder (JSON log generation)
+  - Elasticsearch (storage)
+  - Kibana (dashboards and search)
 
 ### 💻 Frontend (Web)
-- **Пользовательский интерфейс (`neobank-frontend`):** Next.js 16.2.9, React 19, Axios, React Hot Toast
-- **Админ панель (`neobank-admin-frontend`):** Next.js 16.2.9, React 19, TailwindCSS 4, Lucide React
+- **User Interface (`neobank-frontend`):** Next.js 16.2.9, React 19, Axios, React Hot Toast
+- **Admin Panel (`neobank-admin-frontend`):** Next.js 16.2.9, React 19, TailwindCSS 4, Lucide React
 
-### 🐳 DevOps & Инфраструктура
-- **Оркестрация:** Kubernetes (K8s) (Deployment, Service, ConfigMap, Secret, StatefulSet)
-- **Контейнеризация:** Docker
+### 🐳 DevOps & Infrastructure
+- **Orchestration:** Kubernetes (K8s) (Deployment, Service, ConfigMap, Secret, StatefulSet)
+- **Containerization:** Docker
 - **Ingress:** NGINX Ingress Controller
 
 ---
 
-## 🏗 Архитектура и репозитории
+## 🏗 Architecture and Repositories
 
-Проект разделен на отдельные модули/микросервисы. В парадигме GitHub Organization каждый из них может быть отдельным репозиторием.
+The project is divided into individual modules/microservices. Within the GitHub Organization paradigm, each can be a separate repository.
 
-| Сервис / Модуль | Описание и Роль |
+| Service / Module | Description and Role |
 |---|---|
-| **`ms-api-gateway`** | Единая точка входа, маршрутизация запросов (Reverse Proxy), терминация и проверка JWT токенов, CORS. |
-| **`ms-discovery-server`** | Service Registry (Eureka) для динамического обнаружения сервисов внутри кластера. |
-| **`config-server`** | Хранилище конфигураций. Вытягивает настройки из `neobank-config` и раздает микросервисам. |
-| **`ms-user-service`** | Управление пользователями, интеграция с Keycloak (Admin REST Client), KYC-флоу. |
-| **`ms-account-service`** | Счета, балансы, блокировки счетов. |
-| **`ms-card-service`** | Эмиссия карт, привязка к счетам, лимиты. |
-| **`ms-transaction-service`** | Транзакционное ядро, гарантирующее ACID при переводах, история транзакций. |
-| **`ms-notification-service`** | Слушатель Kafka (Consumer). Рассылает уведомления (SMS/Email) при определенных событиях в системе. |
-| **`ms-admin-service`** | Агрегатор данных для админов (BFF - Backend for Frontend). Управление пользователями и фичами. |
-| **`neobank-frontend`** | Пользовательское SPA приложение на Next.js. |
-| **`neobank-admin-frontend`** | Интерфейс администратора банка (Next.js + Tailwind). |
-| **`neobank-config`** | Git-репозиторий с YML-конфигами для Spring Cloud Config. |
-| **`neobank-infra` / `k8s`** | K8s манифесты для деплоя всей инфраструктуры и сервисов (Infrastructure as Code). |
+| **`ms-api-gateway`** | Single entry point, request routing (Reverse Proxy), JWT token termination and validation, CORS. |
+| **`ms-discovery-server`** | Service Registry (Eureka) for dynamic service discovery within the cluster. |
+| **`config-server`** | Configuration repository. Pulls settings from `neobank-config` and distributes them to microservices. |
+| **`ms-user-service`** | User management, Keycloak integration (Admin REST Client), KYC workflows. |
+| **`ms-account-service`** | Accounts, balances, account blocking. |
+| **`ms-card-service`** | Card issuance, linking to accounts, limits. |
+| **`ms-transaction-service`** | Transaction engine ensuring ACID properties for transfers, transaction history. |
+| **`ms-notification-service`** | Kafka listener (Consumer). Sends notifications (SMS/Email) upon specific system events. |
+| **`ms-admin-service`** | Data aggregator for admins (BFF - Backend for Frontend). User and feature management. |
+| **`neobank-frontend`** | User SPA application built on Next.js. |
+| **`neobank-admin-frontend`** | Bank administrator interface (Next.js + Tailwind). |
+| **`neobank-config`** | Git repository containing YML configs for Spring Cloud Config. |
+| **`neobank-infra` / `k8s`** | K8s manifests for deploying the entire infrastructure and services (Infrastructure as Code). |
 
 ---
 
-## 🚀 Как запустить платформу локально (Quick Start)
+## 🚀 Local Deployment (Quick Start)
 
-Чтобы развернуть весь кластер NeoBank локально, выполните шаги:
+To deploy the entire NeoBank cluster locally, follow these steps:
 
-### 1. Требования к окружению
-- **Docker Desktop** (с включенным Kubernetes или Minikube)
+### 1. Environment Requirements
+- **Docker Desktop** (with Kubernetes enabled or Minikube)
 - **kubectl**
-- Утилита **git**
-- Java 21 и Maven (для локальной сборки)
-- Node.js 20+ (для фронтенда)
+- **git** utility
+- Java 21 and Maven (for local builds)
+- Node.js 20+ (for frontend)
 
-### 2. Клонирование и настройка секретов
-Склонируйте конфигурационный репозиторий:
+### 2. Cloning and Configuring Secrets
+Clone the configuration repository:
 ```bash
 git clone https://github.com/YourOrganization/NeoBank-Core.git
 cd NeoBank-Core
 ```
 
-**ОЧЕНЬ ВАЖНО — Настройка секретов:**
-Все пароли от баз данных, токены и ключи шифрования хранятся в секретах K8s.
-1. Перейдите в папку `k8s/`.
-2. Создайте файл секретов на основе шаблона: 
+**CRITICAL — Secrets Configuration:**
+All database passwords, tokens, and encryption keys are stored in K8s secrets.
+1. Navigate to the `k8s/` folder.
+2. Create a secrets file based on the template: 
    ```bash
    cp infra-secrets.example.yaml infra-secrets.yaml
    ```
-3. Откройте `infra-secrets.yaml` и замените значения-заглушки (вида `eW91cl9wYXNzd29yZA==`) на реальные строки в формате Base64 (`echo -n "my_password" | base64`). Файл добавлен в `.gitignore` для безопасности.
+3. Open `infra-secrets.yaml` and replace the placeholder values (e.g., `eW91cl9wYXNzd29yZA==`) with real strings encoded in Base64 (`echo -n "my_password" | base64`). The file is added to `.gitignore` for security.
 
-### 3. Развертывание Инфраструктуры
-Примените манифесты в правильном порядке.
+### 3. Infrastructure Deployment
+Apply the manifests in the correct order.
 ```bash
-# 1. Применяем секреты
+# 1. Apply secrets
 kubectl apply -f k8s/infra-secrets.yaml
 
-# 2. Запускаем базы данных (PostgreSQL)
+# 2. Start databases (PostgreSQL)
 kubectl apply -f k8s/infra-databases.yaml
 
-# 3. Запускаем Kafka (Event Streaming)
+# 3. Start Kafka (Event Streaming)
 kubectl apply -f k8s/infra-kafka.yaml
 
-# 4. Запускаем Системы Мониторинга (ELK + Prometheus + Grafana)
+# 4. Start Monitoring Systems (ELK + Prometheus + Grafana)
 kubectl apply -f k8s/infra-observability.yaml
 
-# 5. Применяем преднастроенные дашборды для Grafana
+# 5. Apply pre-configured Grafana dashboards
 kubectl apply -f k8s/observability-configmaps.yaml
 ```
-Убедитесь, что все инфраструктурные поды перешли в статус `Running`:
+Ensure all infrastructure pods transition to the `Running` state:
 ```bash
 kubectl get pods -w
 ```
 
-### 4. Настройка локальных доменов (Hosts)
-Для корректной работы Ingress и куков добавьте записи в файл `hosts`:
+### 4. Configuring Local Domains (Hosts)
+For Ingress and cookies to work correctly, add the following entries to your `hosts` file:
 - **Windows:** `C:\Windows\System32\drivers\etc\hosts`
 - **Linux/Mac:** `/etc/hosts`
 
@@ -177,44 +177,44 @@ kubectl get pods -w
 127.0.0.1   kibana.neobank.local
 127.0.0.1   api.neobank.local
 ```
-*(Если используете minikube, то вместо 127.0.0.1 укажите IP из команды `minikube ip`)*.
+*(If using minikube, replace 127.0.0.1 with the IP from the `minikube ip` command)*.
 
-### 5. Деплой Микросервисов
-Вы можете запустить микросервисы через IDE (IntelliJ IDEA) с профилем `dev` или задеплоить их в Kubernetes с помощью предоставленного PowerShell скрипта:
+### 5. Microservices Deployment
+You can run the microservices via your IDE (IntelliJ IDEA) using the `dev` profile or deploy them to Kubernetes using the provided PowerShell script:
 ```powershell
 ./deploy-all.ps1
 ```
 
-### 6. Запуск Фронтенд-приложений
-В отдельных терминалах запустите UI:
+### 6. Starting Frontend Applications
+In separate terminals, start the UI:
 ```bash
-# Пользовательский портал
+# User Portal
 cd neobank-frontend
 npm install
 npm run dev
 
-# Админ-панель
+# Admin Panel
 cd ../neobank-admin-frontend
 npm install
 npm run dev
 ```
 
-### 7. Точки доступа (Endpoints)
+### 7. Access Points (Endpoints)
 - **Client Frontend:** http://localhost:3000
 - **Admin Frontend:** http://localhost:3001
 - **API Gateway:** http://api.neobank.local
 - **Keycloak IAM:** http://keycloak.neobank.local
 - **Unleash Feature Toggles:** http://unleash.neobank.local
-- **Grafana (Метрики):** http://grafana.neobank.local
-- **Kibana (Логи):** http://kibana.neobank.local
+- **Grafana (Metrics):** http://grafana.neobank.local
+- **Kibana (Logs):** http://kibana.neobank.local
 
 ---
 
-## 🤝 Контрибьютинг (Contributing)
-Мы приветствуем Pull Requests! Прежде чем начать разработку, пожалуйста:
-1. Ознакомьтесь с архитектурным стилем (у нас строгий CQRS на уровне транзакций).
-2. Используйте MapStruct для маппинга DTO.
-3. Покрывайте новый функционал логами (slf4j) для ELK и кастомными метриками Micrometer.
+## 🤝 Contributing
+We welcome Pull Requests! Before you start developing, please:
+1. Familiarize yourself with the architectural style (we enforce strict CQRS at the transaction level).
+2. Use MapStruct for DTO mapping.
+3. Cover new functionality with logs (slf4j) for ELK and custom Micrometer metrics.
 
 ---
 *Powered by Spring Boot 4 & Kubernetes | Designed for Enterprise Scale.*
